@@ -1,0 +1,1079 @@
+.homepage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F6F3;
+}
+
+/* Trusted Learners Widget - Right Side Wall */
+.trusted-learners-widget {
+  position: fixed;
+  top: calc(50% + 200px);
+  right: 0;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+  z-index: 45;
+  transition: all 0.3s ease;
+  border-radius: 12px 12px 0 0;
+  min-width: 320px;
+}
+
+.trusted-learners-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.trusted-learners-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trusted-learners-star {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 0 1px rgba(255, 184, 77, 0.4));
+}
+
+.trusted-learners-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.trusted-learners-subtitle {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Mobile adjustments for trusted learners widget */
+@media (max-width: 768px) {
+  .trusted-learners-widget {
+    top: calc(50% + 150px);
+    padding: 8px 15px;
+    min-width: 260px;
+  }
+  
+  .trusted-learners-star {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .trusted-learners-text {
+    font-size: 13px;
+  }
+  
+  .trusted-learners-subtitle {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-learners-widget {
+    top: calc(50% + 100px);
+    padding: 6px 12px;
+    min-width: 200px;
+  }
+  
+  .trusted-learners-star {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .trusted-learners-text {
+    font-size: 12px;
+  }
+  
+  .trusted-learners-subtitle {
+    font-size: 10px;
+  }
+}
+
+/* Full Width Hero Banner Section */
+.hero-banner-fullwidth {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-banner-image {
+  width: 100%;
+  height: auto;
+  max-height: calc(60vh + 200px);
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Videos Section - Auto-scrolling Carousel */
+.videos-section {
+  padding: 5rem 1rem;
+  background: #F8F6F3;
+  overflow: hidden;
+}
+
+.videos-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.videos-carousel {
+  display: flex;
+  gap: 1.5rem;
+  animation: scrollVideos 8s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+
+/* Pause animation on hover or when user interacts */
+.videos-carousel-wrapper:hover .videos-carousel,
+.videos-carousel-wrapper.scrolling .videos-carousel {
+  animation-play-state: paused;
+}
+
+.video-panel {
+  flex-shrink: 0;
+  width: 280px;
+  height: 350px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-panel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play Button Overlay */
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.play-button-circle {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.video-panel:hover .play-button-circle {
+  transform: scale(1.1);
+}
+
+.play-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px; /* Slight offset for visual centering */
+}
+
+/* Video Modal */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.video-modal-container {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10000;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-modal-player {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .video-modal-container {
+    max-width: 85%;
+    max-height: 85vh;
+  }
+
+  .video-modal-close {
+    top: -35px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .video-modal-player {
+    max-width: 100%;
+    max-height: 85vh;
+  }
+}
+
+@keyframes scrollVideos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+/* Featured Products Section */
+.featured-section {
+  padding: 2rem 0.5rem;
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .featured-section {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-section {
+    padding: 5rem 1rem;
+  }
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header {
+    margin-bottom: 3rem;
+  }
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #2d2d2d;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #666;
+  margin: 0;
+}
+
+.featured-section .products-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 0;
+  max-width: 100%;
+  max-height: calc(100% - 100px);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.featured-section .product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 70% !important;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f5f0f3 100%);
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 90%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f5f0f3 100%);
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #a58296;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.compare-price {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.add-to-cart-btn-homepage {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  background: #a58296;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart-btn-homepage:hover {
+  background: #8e6d82;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(165, 130, 150, 0.3);
+}
+
+.section-footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.view-all-btn {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: #a58296;
+  border: 2px solid #a58296;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-all-btn:hover {
+  background: #a58296;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(165, 130, 150, 0.3);
+}
+
+/* Trust Badges Section */
+.trust-section {
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+}
+
+.trust-badges-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(157, 123, 144, 0.3) transparent;
+}
+
+.trust-badges-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.trust-badges-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.trust-badges-container::-webkit-scrollbar-thumb {
+  background: rgba(157, 123, 144, 0.3);
+  border-radius: 3px;
+}
+
+.trust-badges-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 123, 144, 0.5);
+}
+
+.trust-badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trust-badge-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: transparent;
+  border: 0.5px solid #9D7B90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.trust-badge-circle:hover {
+  transform: scale(1.1);
+}
+
+.trust-badge-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Responsive Trust Badges */
+@media (max-width: 768px) {
+  .trust-section {
+    padding: 3rem 1rem;
+  }
+
+  .trust-badges-container {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 2rem 1rem;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+  }
+
+  .trust-badge-item {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  .trust-badge-circle {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-badges-container {
+    gap: 1rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .trust-badge-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f5f0f3 100%);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  color: #a58296;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(165, 130, 150, 0.15);
+}
+
+.benefit-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0 0 0.5rem 0;
+}
+
+.benefit-description {
+  font-size: 0.9375rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .featured-section .products-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    min-height: 70vh;
+    padding: 3rem 1rem;
+  }
+
+  .videos-section {
+    padding: 3rem 1rem;
+  }
+
+  .video-panel {
+    width: 240px;
+    height: 300px;
+  }
+
+  .featured-section .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .benefit-item {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .featured-section .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Floating Instagram Button */
+.instagram-floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(188, 24, 136, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.instagram-floating-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 24, 136, 0.5);
+}
+
+.instagram-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.instagram-btn-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .instagram-floating-btn {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 14px 20px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  .instagram-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-floating-btn {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .instagram-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .instagram-btn-text {
+    font-size: 13px;
+  }
+}
+
+/* Instagram Modal */
+.instagram-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.instagram-modal-container {
+  position: relative;
+  width: 40%;
+  max-width: 900px;
+  height: 100vh;
+  background: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.instagram-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10001;
+}
+
+.instagram-modal-close:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.instagram-modal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.instagram-modal-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  flex-shrink: 0;
+}
+
+.instagram-modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin: 0 0 0.5rem 0;
+}
+
+.instagram-modal-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.instagram-embeds-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  align-items: center;
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.instagram-embed-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.instagram-embed-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.instagram-embed-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Instagram Shimmer Loading */
+.instagram-shimmer-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.instagram-shimmer-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.instagram-shimmer {
+  width: 100%;
+  max-width: 540px;
+  background: #fafafa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: shimmer-pulse 1.5s ease-in-out infinite;
+}
+
+.shimmer-header {
+  height: 60px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 2s infinite;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.shimmer-content {
+  height: 400px;
+  background: linear-gradient(90deg, #f5f5f5 25%, #e8e8e8 50%, #f5f5f5 75%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 2s infinite;
+}
+
+.shimmer-footer {
+  height: 80px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 2s infinite;
+  border-top: 1px solid #e5e5e5;
+}
+
+@keyframes shimmer-slide {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes shimmer-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Instagram embed styling */
+.instagram-embeds-container .instagram-media {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  min-width: 326px;
+}
+
+.instagram-embeds-container .instagram-media iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  min-width: 326px;
+}
+
+@media (max-width: 768px) {
+  .instagram-modal-container {
+    width: 100% !important;
+    height: 90vh;
+    border-radius: 12px;
+  }
+
+  .instagram-modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .instagram-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .instagram-modal-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .instagram-embeds-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .instagram-embeds-container .instagram-media {
+    min-width: unset !important;
+  }
+
+  .instagram-embeds-container .instagram-media iframe {
+    min-width: unset !important;
+  }
+
+  .instagram-shimmer {
+    max-width: 100%;
+  }
+
+  .shimmer-content {
+    height: 350px;
+  }
+
+  .instagram-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .instagram-modal-container {
+    width: 100% !important;
+    height: 90vh;
+    border-radius: 8px;
+  }
+
+  .instagram-modal-header {
+    padding: 1rem 1rem 0.75rem;
+  }
+
+  .instagram-modal-title {
+    font-size: 1.25rem;
+  }
+
+  .instagram-modal-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .instagram-embeds-container {
+    padding: 1rem;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .instagram-embeds-container .instagram-media {
+    min-width: unset !important;
+  }
+
+  .instagram-embeds-container .instagram-media iframe {
+    min-width: unset !important;
+  }
+
+  .instagram-shimmer {
+    max-width: 100%;
+  }
+
+  .shimmer-content {
+    height: 300px;
+  }
+
+  .instagram-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+  }
+}
+

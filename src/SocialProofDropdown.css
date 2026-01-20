@@ -1,0 +1,336 @@
+/* Icon Only Version */
+.social-proof-icon-only {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.social-proof-icon-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f5f0f3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(165, 130, 150, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.social-proof-icon-image:hover {
+  transform: scale(1.1);
+}
+
+.social-proof-icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-proof-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a58296 0%, #8e6d82 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.social-proof-icon-circle:hover {
+  transform: scale(1.1);
+}
+
+/* Old dropdown container - keeping for backwards compatibility */
+.social-proof-dropdown-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+/* Dropdown Select Button */
+.social-proof-select-wrapper {
+  position: relative;
+}
+
+.social-proof-select-btn {
+  background: white;
+  border: 1px solid rgba(165, 130, 150, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #2d2d2d;
+  font-weight: 500;
+}
+
+.social-proof-select-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: rgba(165, 130, 150, 0.5);
+}
+
+.social-proof-chevron {
+  transition: transform 0.3s ease;
+}
+
+.social-proof-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.social-proof-dropdown-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(165, 130, 150, 0.2);
+  min-width: 280px;
+  max-width: 320px;
+  max-height: 300px;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease-out;
+  z-index: 1000;
+}
+
+.social-proof-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.social-proof-menu-item:last-child {
+  border-bottom: none;
+}
+
+.social-proof-menu-item:hover {
+  background: #f8f6f3;
+}
+
+.social-proof-menu-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(165, 130, 150, 0.2);
+}
+
+.social-proof-menu-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a58296 0%, #8e6d82 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.social-proof-menu-text {
+  font-size: 12px;
+  color: #2d2d2d;
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Widget - Shows when message is selected - Compact size */
+.social-proof-widget {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  max-width: 260px;
+  width: 260px;
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.social-proof-content {
+  background: white;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(165, 130, 150, 0.2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-proof-content:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.social-proof-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a58296 0%, #8e6d82 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+}
+
+.social-proof-image {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f5f0f3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(165, 130, 150, 0.2);
+}
+
+.social-proof-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-proof-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.social-proof-message {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin: 0;
+  font-weight: 500;
+}
+
+.social-proof-time {
+  display: block;
+  font-size: 9px;
+  color: #666;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+.social-proof-close {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.social-proof-close:hover {
+  background: #f5f5f5;
+  color: #666;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .social-proof-dropdown-container {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .social-proof-dropdown-menu {
+    min-width: 250px;
+    max-width: calc(100vw - 2rem);
+    max-height: 250px;
+  }
+
+  .social-proof-widget {
+    max-width: calc(100vw - 2rem);
+    width: calc(100vw - 2rem);
+  }
+
+  .social-proof-content {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .social-proof-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .social-proof-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-proof-message {
+    font-size: 12px;
+  }
+
+  .social-proof-time {
+    font-size: 10px;
+  }
+
+  .social-proof-close {
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+  }
+
+  .social-proof-menu-text {
+    font-size: 11px;
+  }
+}
+

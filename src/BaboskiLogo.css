@@ -1,0 +1,138 @@
+/* BaboskiLogo.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@200;4000;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+.baboski-logo {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  position: relative;
+}
+
+.baboski-text {
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.officialroop-logo-wrapper {
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  border-radius: 0.4em;
+  background: linear-gradient(135deg, #764ba2 0%, #a58296 50%, #c9a9bd 100%);
+}
+
+.officialroop-logo {
+  display: inline-block;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  line-height: 1.2;
+}
+
+/* Size variations */
+.baboski-logo.small {
+  font-size: 29px;
+}
+
+.baboski-logo.medium {
+  font-size: 35px;
+}
+
+.baboski-logo.large {
+  font-size: 43px;
+}
+
+.baboski-logo.xlarge {
+  font-size: 51px;
+}
+
+/* Color variations */
+.baboski-logo.dark .baboski-text {
+  color: #2c2c2c;
+}
+
+.baboski-logo.light .baboski-text {
+  color: #ffffff;
+}
+
+.baboski-logo.brand .officialroop-logo-wrapper {
+  background: none;
+  padding: 0;
+}
+
+.baboski-logo.brand .baboski-text {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 
+    1px 1px 0px rgba(0, 0, 0, 0.2),
+    -1px -1px 0px rgba(0, 0, 0, 0.2),
+    1px -1px 0px rgba(0, 0, 0, 0.2),
+    -1px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.3px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.08em;
+}
+
+.baboski-logo.brand .officialroop-logo {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 
+    1px 1px 0px rgba(0, 0, 0, 0.2),
+    -1px -1px 0px rgba(0, 0, 0, 0.2),
+    1px -1px 0px rgba(0, 0, 0, 0.2),
+    -1px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.3px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.baboski-logo:hover .baboski-text {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Optional decorative underline */
+.baboski-logo.underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #a58296 0%, #8e6d82 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.baboski-logo.underline:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Modern minimalist style matching the brand */
+.baboski-logo.minimal {
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.baboski-logo.minimal .officialroop-logo-wrapper {
+  background: linear-gradient(135deg, #764ba2 0%, #a58296 100%);
+  padding: 0.4em 1em;
+}
+
+.baboski-logo.minimal .officialroop-logo {
+  color: #ffffff;
+  letter-spacing: 0.15em;
+}

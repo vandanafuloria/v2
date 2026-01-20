@@ -1,0 +1,621 @@
+.draggable-video {
+  position: fixed;
+  z-index: 1000;
+  user-select: none;
+  touch-action: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: #000;
+  transition: all 0.3s ease;
+  cursor: move;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.draggable-video.dragging {
+  transform: scale(1.05);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  cursor: grabbing;
+}
+
+.draggable-video:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Video Wrapper */
+.video-wrapper {
+  position: relative;
+  width: 180px;
+  height: 320px;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Video Player */
+.draggable-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  outline: none;
+}
+
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.draggable-video:hover .video-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Top Controls */
+.top-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.control-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.close-btn:hover {
+  background: rgba(239, 68, 68, 0.9);
+}
+
+/* Play Button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Minimized State */
+.draggable-video.minimized .video-wrapper {
+  width: 80px;
+  height: 140px;
+}
+
+.draggable-video.minimized .video-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+}
+
+.minimized-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.minimized-icon:hover {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Drag Indicator */
+.drag-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.draggable-video:hover .drag-indicator {
+  opacity: 0.6;
+}
+
+.drag-dots {
+  display: flex;
+  gap: 2px;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.drag-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .draggable-video {
+    cursor: grab;
+  }
+  
+  .draggable-video.dragging {
+    cursor: grabbing;
+  }
+  
+  .video-wrapper {
+    width: 160px;
+    height: 280px;
+  }
+  
+  .draggable-video.minimized .video-wrapper {
+    width: 60px;
+    height: 100px;
+  }
+  
+  .control-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .play-button {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .top-controls {
+    top: 6px;
+    right: 6px;
+    gap: 4px;
+  }
+  
+  /* Make controls always visible on mobile */
+  .video-overlay {
+    opacity: 0.8;
+    pointer-events: auto;
+  }
+  
+  .drag-indicator {
+    opacity: 0.8;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .video-wrapper {
+    width: 140px;
+    height: 240px;
+  }
+  
+  .draggable-video.minimized .video-wrapper {
+    width: 50px;
+    height: 85px;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .draggable-video {
+    border-width: 1px;
+  }
+}
+
+/* Animation for show/hide */
+.draggable-video {
+  animation: slideInFromCorner 0.4s ease-out;
+}
+
+@keyframes slideInFromCorner {
+  from {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Focus styles for accessibility */
+.control-btn:focus,
+.play-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection */
+.draggable-video * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Autoplay indicator */
+.autoplay-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+/* Video Modal Styles */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: #000;
+  min-height: 400px;
+  flex-shrink: 0;
+}
+
+.modal-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  outline: none;
+  display: block;
+}
+
+/* New Product Overlay - Horizontal Layout */
+.modal-product-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+  padding: 30px 25px 25px;
+  color: #ffffff;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-product-layout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Left side - Product Image */
+.modal-product-image-container {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  padding: 4px;
+}
+
+.modal-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Right side - Product Details */
+.modal-product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-product-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.modal-product-price {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.modal-add-to-cart-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.modal-add-to-cart-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+}
+
+/* Desktop optimizations for modal */
+@media (min-width: 769px) {
+  .video-modal-overlay {
+    padding: 40px 20px;
+  }
+  
+  .video-modal-content {
+    max-width: 400px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+  }
+  
+  .modal-video-container {
+    max-height: calc(90vh - 140px);
+    min-height: 0;
+  }
+  
+  .modal-product-overlay {
+    padding: 25px 20px 20px;
+  }
+  
+  .modal-product-layout {
+    width: 100%;
+    gap: 16px;
+  }
+  
+  .modal-product-image-container {
+    flex-shrink: 0;
+  }
+  
+  .modal-product-details {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .modal-add-to-cart-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile optimizations for modal */
+@media (max-width: 768px) {
+  .video-modal-overlay {
+    padding: 10px;
+  }
+  
+  .video-modal-content {
+    max-width: 100%;
+    border-radius: 16px;
+    max-height: 90vh;
+  }
+  
+  .modal-close-btn {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .modal-product-overlay {
+    padding: 20px 15px 15px;
+    width: 100%;
+  }
+  
+  .modal-product-layout {
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .modal-product-image-container {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+  
+  .modal-product-details {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .modal-product-name {
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .modal-product-price {
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  .modal-add-to-cart-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .modal-product-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .modal-product-image-container {
+    align-self: center;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .modal-product-details {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .modal-product-name,
+  .modal-product-price {
+    text-align: center;
+  }
+  
+  .modal-add-to-cart-btn {
+    width: 100%;
+  }
+}
+
+/* Modal animation */
+.video-modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.video-modal-content {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
